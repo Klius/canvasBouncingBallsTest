@@ -1,4 +1,5 @@
 var canvas;
+var quadTree;
 var ctx;
 var color = "red";
 var dx = 4;
@@ -28,6 +29,8 @@ window.onload = function(){
 			case 0:
 				ancho = canvas.width;
 				alto = canvas.height;
+				quadTree = new QuadTree({x:0,y:0,width:ancho,height:alto});
+
 				limiteDerecha = ancho - ball.radio;
 				limiteIzquierda = ball.radio;
 				limiteAbajo = alto-ball.radio;
@@ -40,9 +43,8 @@ window.onload = function(){
 				canvas.onclick = function onclick(event){
 					var randam = getRandomInt(-1,1);
 					randam = (randam == 0) ? (1): randam;
-					var newball = new Ball(10,event.clientX,event.clientY,dx * randam,dy * randam);
+					var newball = new Ball(10,event.clientX,event.clientY,dx * randam,dy * randam,balls.length);
 					balls.push(newball);
-					
 				};
 				break;
 		}

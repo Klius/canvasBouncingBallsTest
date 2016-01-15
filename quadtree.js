@@ -1,4 +1,4 @@
-**
+/**
  * QuadTree object.
  *
  * The quadrant indexes are numbered as below:
